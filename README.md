@@ -16,16 +16,24 @@ The main idea of this article is that when using reinforcement learning (RL) to 
 
 ## Code Description
 project_directory/
+
 ├── gui.py                  # Code for the graphical user interface.
+
 ├── maddpg.py               # Implementation of the MADDPG algorithm used in the project.
+
 ├── main.py                 # Main script to run the program.
+
 ├── networks.py             # Defines the actor-critic network, shared among agents of the same type.
+
 ├── predator_prey_env.py    # Implementation of the predator-prey simulation environment.
+
 ├── replay_buffer.py        # Replay buffer shared by agents of the same type for experience replay.
 
 It is worth noting that there are some simplifications and omissions in my code. However, these modifications are unrelated to the core content of the article. For example, the article prohibits agents from colliding by using Hooke's law, but this aspect has been omitted in the code. Additionally, the output of the actor network has been scaled in the code to ensure smoother trajectories during simulation. These changes do not affect the fundamental essence of the article.
 
 ## Installation
 git clone https://github.com/xxnnnnn/PredatorPrey_RL_Reproduction.git
+
 cd PredatorPrey_RL_Reproduction
+
 pip install -r requirements.txt
