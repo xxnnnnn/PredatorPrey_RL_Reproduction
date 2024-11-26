@@ -65,10 +65,10 @@ The network consists of three hidden layers, each with 64 units. The **Critic Ne
 | Batch size                  | 256        |
 
 ### Environment,Observation and Reward
-Environment:In the code I use gymnaisum,pettingzoo and pygame as main tool.
+Environment:The code leverages **Gymnasium**, **PettingZoo**, and **Pygame** as the primary tools for building and managing the environment.
 
 
-Observation:Each agent can observe at most 6 allies and 6 adversaries.If the numbers of agents in the perception range exceeds the topology threshold,the farthest ones are removed, and if does not reach the threshold,the rest part of the observation vector are masked out with zeros.
+Observation:Each agent can observe a maximum of 6 allies and 6 adversaries within its perception range. If the number of agents exceeds this limit, the farthest ones are excluded from the observation. Conversely, if the number of agents is below the threshold, the remaining portion of the observation vector is padded with zeros. This ensures a consistent observation structure regardless of the number of agents in range.
 
 Reward:
 - **Prey Rewards**:  
