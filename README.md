@@ -52,20 +52,36 @@ The network consists of three hidden layers, each with 64 units. The **Critic Ne
 | **Hyper-parameter**         | **Value**  |
 |-----------------------------|------------|
 | Number of episodes          | 2000(1000 in code)       |
-| Episode length              | 100        |
+| Episode length              | 100 (400 in code)       |
 | Number of hidden layers     | 3          |
 | Hidden layer size           | 64         |
 | Learning rate of actor      | 1e-4       |
 | Learning rate of critic     | 1e-3       |
 | Discount factor             | 0.95       |
 | Soft-update rate            | 0.01       |
-| Initial exploration rate    | 0.1        |
+| Initial exploration rate    | 0.1 (none in code)       |
 | Initial noise rate          | 0.1        |
 | Replay buffer size          | 5e5        |
 | Batch size                  | 256        |
 
-### Observation and Reward
+### Environment,Observation and Reward
+Environment:In the code I use gymnaisum,pettingzoo and pygame as main tool.
 
+
+Observation:Each agent can observe at most 6 allies and 6 adversaries.If the numbers of agents in the perception range exceeds the topology threshold,the farthest ones are removed, and if does not reach the threshold,the rest part of the observation vector are masked out with zeros.
+
+Reward:
+- **Prey Rewards**:  
+  - The prey receives a reward \( r = -1 \) if caught by a predator.  
+  - When caught by predator,the prey will not be eliminated but continuously minor it's reward as a situation of bleeding.A survival reward is given but returns to zero upon separation from predators.
+  - Movement incurs a penalty: \( -0.01|a_F| - 0.1|a_R| \), discouraging unnecessary motion.
+
+- **Predator Rewards**:  
+  - The predator receives a reward \( r = +1 \) for catching prey.  
+  - Prey agents are not removed from the simulation after being caught, allowing continuous interaction.
+
+- **Boundary Penalty**:  
+  - A penalty of \( -0.1 \) is applied when agents contact boundaries, simulating environmental risks or confined spaces.
 
 
 ### Simulation and Evaluation
