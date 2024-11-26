@@ -21,13 +21,45 @@ project_directory/
 
 ├── maddpg.py               # Implementation of the MADDPG algorithm used in the project.
 
-├── main.py                 # Main script to run the program.
+├── train.py                 # Training the model in the project.
 
 ├── networks.py             # Defines the actor-critic network, shared among agents of the same type.
 
 ├── predator_prey_env.py    # Implementation of the predator-prey simulation environment.
 
 ├── replay_buffer.py        # Replay buffer shared by agents of the same type for experience replay.
+
+├── eval.py        # Eval the model in the project.
+
+**The following sections of the file can be modified as outlined below:**
+
+- **gui.py**
+  - **Grid**: Customize light/dark grid spacing and colors for visualization.
+  - **Agents**: Modify the appearance of predators (red) and prey (green), including their headings and sizes.
+  - **Display Updates**: Adjust real-time updates of the grid, agent positions, and epoch information.
+  - **Frame Rate**: Configure FPS for smoother or faster visualization.
+
+- **maddpg.py**
+  - **Gaussian Noise**: Modify the noise parameters to adjust exploration during training.
+  - **Exploration**: The current code lacks explicit exploration functionality, which can make training challenging in early episodes.
+
+- **train.py**
+  - **Video Recording**:
+    - Adjust the settings for saving episode videos, such as frame dimensions and encoding requirements.
+
+- **predator_prey_env.py**
+  - **Purpose**: Implements a predator-prey environment using the `PettingZoo` parallel API for multi-agent reinforcement learning.
+  - **Environment Features**:
+    - **State Dynamics**:
+      - Add functionality to avoid collisions for more realistic behavior.
+    - **Rewards**:
+      - Modify reward functions to explore different behavioral outcomes.
+  - **Key Components**:
+    - **Perception**: Adjust the perception range to observe various phenomena, as suggested in the referenced article.
+
+- **eval.py**
+  - **Video Generation**:
+    - Modify the FPS and video length to tailor the evaluation output.
 
 It is worth noting that there are some simplifications and omissions in my code. However, these modifications are unrelated to the core content of the article.
 
@@ -51,7 +83,7 @@ The network consists of three hidden layers, each with 64 units. The **Critic Ne
 ### The Hyper-parameter
 | **Hyper-parameter**         | **Value**  |
 |-----------------------------|------------|
-| Number of episodes          | 2000(1000 in code)       |
+| Number of episodes          | 2000      |
 | Episode length              | 100 (400 in code)       |
 | Number of hidden layers     | 3          |
 | Hidden layer size           | 64         |
@@ -68,13 +100,13 @@ The network consists of three hidden layers, each with 64 units. The **Critic Ne
 Environment:The code leverages **Gymnasium**, **PettingZoo**, and **Pygame** as the primary tools for building and managing the environment.
 
 
-Observation:Each agent can observe a maximum of **6 allies** and **6 adversaries** within its perception range. If the number of agents exceeds this limit, **the farthest ones are excluded from the observation**. Conversely, if the number of agents is below the threshold, the remaining portion of the observation vector is **padded with zeros**. This ensures a consistent observation structure regardless of the number of agents in range.
+Observation:Each agent can observe a maximum of **6 allies** and **6 adversaries** within its perception range. If the number of agents exceeds this limit, **the farthest ones are excluded from the observation**. Conversely, if the number of agents is below the threshold, the remaining portion of the observation vector is **padded with zeros**. This ensures a consistent observation structure regardless of the number of agents in range.The observation includes **the agent's own position, velocity, and heading, as well as the relative positions and headings of observed agents**.
 
 Reward:
 - **Prey Rewards**:  
   - The prey receives a reward **\( r = -1 \)** if caught by a predator.  
   - When caught by predator,the prey will not be eliminated but continuously minor it's reward as a situation of bleeding.A survival reward is given but returns to zero upon separation from predators.
-  - Movement incurs a penalty: **\( -0.01|a_F| - 0.1|a_R| \)**, discouraging unnecessary motion.
+  - Movement incurs a penalty: **\( -0.01|a<sub>F</sub>| - 0.1|a<sub>R</sub>| \)**, discouraging unnecessary motion.
 
 - **Predator Rewards**:  
   - The predator receives a reward **\( r = +1 \)** for catching prey.  
