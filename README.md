@@ -31,7 +31,7 @@ project_directory/
 
 ├── eval.py        # Eval the model in the project.
 
-**The following sections of the file can be modified as outlined below:**
+**The following sections of the file are encouraged to be modified as outlined below:**
 
 - **gui.py**
   - **Grid**: Customize light/dark grid spacing and colors for visualization.
@@ -48,7 +48,6 @@ project_directory/
     - Adjust the settings for saving episode videos, such as frame dimensions and encoding requirements.
 
 - **predator_prey_env.py**
-  - **Purpose**: Implements a predator-prey environment using the `PettingZoo` parallel API for multi-agent reinforcement learning.
   - **Environment Features**:
     - **State Dynamics**:
       - Add functionality to avoid collisions for more realistic behavior.
