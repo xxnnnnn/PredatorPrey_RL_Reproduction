@@ -73,8 +73,8 @@ class Env(ParallelEnv):
         self.epoch_counter = 0
 
         # Define agent radii
-        self.predator_radius = 12.0  # Radius for predators
-        self.prey_radius = 10.0      # Radius for preys
+        self.predator_radius = 10.0  # Radius for predators
+        self.prey_radius = 8.0      # Radius for preys
         self.agent_radii: Dict[AgentID, float] = {
             agent: self.predator_radius if 'predator' in agent else self.prey_radius
             for agent in self.agents

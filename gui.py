@@ -68,7 +68,7 @@ class Gui:
             pygame.draw.circle(self.screen, color, (int(x), int(y)), radius)
 
             # Draw heading as a line (nose)
-            line_length = 15  # Length of the heading line
+            line_length = 12  # Length of the heading line
             end_x = int(x + line_length * np.cos(heading))
             end_y = int(y + line_length * np.sin(heading))
             pygame.draw.line(self.screen, (0, 0, 0), (int(x), int(y)), (end_x, end_y), 2)
