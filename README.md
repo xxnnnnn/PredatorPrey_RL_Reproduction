@@ -119,7 +119,8 @@ Reward:
 
 ![image](https://github.com/xxnnnnn/PredatorPrey_RL_Reproduction/blob/main/eval_videos/gif%201_1.gif))
 ![image](https://github.com/xxnnnnn/PredatorPrey_RL_Reproduction/blob/main/eval_videos/gif%201_2.gif))
-![image](https://github.com/xxnnnnn/PredatorPrey_RL_Reproduction/blob/main/eval_videos/gif%201_1.gif))
+![image](https://github.com/xxnnnnn/PredatorPrey_RL_Reproduction/blob/main/eval_videos/gif%202_2.gif))
+
 
 
 ## Installation
