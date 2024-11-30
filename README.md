@@ -117,7 +117,7 @@ Reward:
 
 ### Simulation and Evaluation
 
-![image](https://github.com/xxnnnnn/PredatorPrey_RL_Reproduction/blob/main/eval_videos/eval_episode_1.mp4)
+![image](https://github.com/xxnnnnn/PredatorPrey_RL_Reproduction/blob/main/eval_videos/gif%201_1.gif))
 
 
 ## Installation
