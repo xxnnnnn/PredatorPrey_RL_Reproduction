@@ -1,2 +1,3 @@
 running 8500 epoch
 saving my model here
+To use my code, please place the four model files at the same directory level as train.py and eval.py.
