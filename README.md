@@ -117,11 +117,11 @@ Reward:
 
 ### Simulation and Question
 
-![image](https://github.com/xxnnnnn/PredatorPrey_RL_Reproduction/blob/main/eval_videos/gif%201_1.gif))
-![image](https://github.com/xxnnnnn/PredatorPrey_RL_Reproduction/blob/main/eval_videos/gif%201_2.gif))
-![image](https://github.com/xxnnnnn/PredatorPrey_RL_Reproduction/blob/main/eval_videos/gif%202_2.gif))
+![image](https://github.com/xxnnnnn/PredatorPrey_RL_Reproduction/blob/main/eval_videos/gif%201_1.gif)
+![image](https://github.com/xxnnnnn/PredatorPrey_RL_Reproduction/blob/main/eval_videos/gif%201_2.gif)
+![image](https://github.com/xxnnnnn/PredatorPrey_RL_Reproduction/blob/main/eval_videos/gif%202_2.gif)
 
-The model can shows the 集群 behaviors when predatoring are catching them.It's obvious that the position of predator may force the prey to the near position,and cause the actor was driven by observation.The nearest the conspecies agent is , the samest they observe so they take the same action as a whole.
+The model exhibits swarming behavior when the predators are attempting to catch the prey. It’s evident that the position of the predator can force prey into close proximity, leading to the phenomenon where the actors are primarily driven by their observations. The closer the conspecific agents are, the more similar their observations become, resulting in them acting as a cohesive unit.
 
 In this project, I did not attempt to reproduce the DoS or DoA results, nor did I recreate the high-quality visuals from the paper. Instead, my focus was on successfully training the model, which I managed to do,though it did not show all the behavior as the paper talking about,but also leading to some interesting emergent behaviors. For example, the prey often preferred to phase through walls to escape the predator. Interestingly, this wall-passing behavior aligns with what was described in the original paper. I suspect that this is due to my reward settings, where the penalty for getting caught—or the reward for catching—is set too high, making wall-passing a reasonable strategy for both agents.
 
