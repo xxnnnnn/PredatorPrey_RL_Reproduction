@@ -15,7 +15,7 @@ Additionally,there are also some videos that discuss concepts similar to those p
 The main idea of this article is that when using reinforcement learning (RL) to simulate swarm behavior, specific reward functions may cause the swarm to exhibit certain behaviors. However, such tailored rewards are not necessary. Instead, the coevolution of the swarm can be achieved using the simplest form of reward—**the pressure of survival**.
 
 ## Code Description
-project_directory/
+PredatorPrey_RL_Reproduction/
 
 ├── gui.py                  # Code for the graphical user interface.
 
@@ -58,7 +58,7 @@ project_directory/
 
 - **eval.py**
   - **Video Generation**:
-    - Modify the FPS and video length to tailor the evaluation output.
+    - Modify the FPS, video length and anything else to tailor the evaluation output.
 
 It is worth noting that there are some simplifications and omissions in my code. However, these modifications are unrelated to the core content of the article.
 
@@ -82,7 +82,7 @@ The network consists of three hidden layers, each with 64 units. The **Critic Ne
 ### The Hyper-parameter
 | **Hyper-parameter**         | **Value**  |
 |-----------------------------|------------|
-| Number of episodes          | 2000      |
+| Number of episodes          | 2000(8500 in code)      |
 | Episode length              | 100 (400 in code)       |
 | Number of hidden layers     | 3          |
 | Hidden layer size           | 64         |
