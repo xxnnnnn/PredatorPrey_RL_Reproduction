@@ -18,7 +18,7 @@ class Env(ParallelEnv):
 
         # Number of agents
         self.num_predators = 2
-        self.num_preys = 8
+        self.num_preys = 7
 
         # Create agent list
         self.predators = [f'predator_{i}' for i in range(self.num_predators)]
@@ -81,7 +81,7 @@ class Env(ParallelEnv):
         }
 
         # Define maximum steps per episode
-        self.max_steps = 400
+        self.max_steps = 4000
 
         # Monitor captured preys
         self.captured_preys: Dict[AgentID, bool] = {prey: False for prey in self.preys}
@@ -309,7 +309,7 @@ class Env(ParallelEnv):
         # Record next state after actions have been applied
         next_states = {agent: self.observe(agent) for agent in self.agents if not self._dones[agent]}
 
-        terminated = {agent: self._step_count >= self.max_steps for agent in self.agents}
+        terminated = {agent: False for agent in self.agents}
         truncated = {agent: False for agent in self.agents}  # Continuous environments可能设置为False
 
         # Prepare info dictionaries

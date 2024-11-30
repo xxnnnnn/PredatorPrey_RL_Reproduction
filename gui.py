@@ -30,7 +30,7 @@ class Gui:
 
         # Clock for controlling frame rate
         self.clock = pygame.time.Clock()
-        self.fps = 100  # Frames per second
+        self.fps = 60  # Frames per second
 
     def draw_grid(self):
         """

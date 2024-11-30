@@ -19,7 +19,7 @@ def train():
 
     # Initialize the environment
     env = Env()
-    num_episodes = 5000  # Number of episodes to train
+    num_episodes = 18000  # Number of episodes to train
     max_steps = env.max_steps  # Maximum number of steps per episode
 
     # Create directory to store video files
@@ -48,11 +48,11 @@ def train():
     # Attempt to load pre-trained models if available
     try:
         maddpg.predator_actor.load_state_dict(
-            torch.load("predator_actor_500.pth", map_location=device, weights_only=True))
-        maddpg.prey_actor.load_state_dict(torch.load("prey_actor_500.pth", map_location=device, weights_only=True))
+            torch.load("predator_actor.pth", map_location=device, weights_only=True))
+        maddpg.prey_actor.load_state_dict(torch.load("prey_actor.pth", map_location=device, weights_only=True))
         maddpg.predator_critic.load_state_dict(
-            torch.load("predator_critic_500.pth", map_location=device, weights_only=True))
-        maddpg.prey_critic.load_state_dict(torch.load("prey_critic_500.pth", map_location=device, weights_only=True))
+            torch.load("predator_critic.pth", map_location=device, weights_only=True))
+        maddpg.prey_critic.load_state_dict(torch.load("prey_critic.pth", map_location=device, weights_only=True))
         print("Loaded pre-trained models.")
     except FileNotFoundError:
         print("Pre-trained models not found. Starting training from scratch.")
